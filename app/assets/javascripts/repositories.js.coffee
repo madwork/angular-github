@@ -10,14 +10,13 @@ Github.factory "User", ($resource) ->
 
 # Controller repositories
 Github.controller "RepositoriesController", ($scope, User, Repository) ->
-  $scope.username = 'madwork'
-
-  $scope.user = User.get({username:$scope.username})
-  $scope.repositories = Repository.get({username:$scope.username})
+  $scope.user = User.get({username:'madwork'})
+  $scope.repositories = Repository.get({username:'madwork'})
 
   $scope.orderProp = '-watchers_count'
 
   # fetch method
   $scope.fetch = ->
+    this.username ||= 'madwork'
     $scope.user = User.get({username:this.username})
     $scope.repositories = Repository.get({username:this.username})
