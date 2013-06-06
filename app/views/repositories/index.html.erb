@@ -1,0 +1,39 @@
+<div ng-controller="RepositoriesController" data-no-turbolink>
+  <div class="row-fluid">
+    <div class="span2">
+      <form>
+        <fieldset>
+          <legend><%= link_to "Github Repositories", root_url %></legend>
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-user"></i></span>
+            <input type="text" ng-model="username" placeholder="Github username..." autofocus>
+          </div>
+          <button type="submit" class="btn" ng-click="fetch()">Search</button>
+        </fieldset>
+      </form>
+    </div>
+    <div class="span10">
+      <div class="hero-unit vcard">
+        <div class="row">
+          <div class="span1">
+            <img ng-src="{{user.avatar_url}}" class="thumbnail" alt="" title="{{user.name}}">
+          </div>
+          <div class="span11">
+            <h1>{{user.name}}</h1>
+            <p>{{user.email}}</p>
+            <p><a href="{{user.html_url}}" class="btn btn-primary btn-large" target="_blank">Visit profile</a></p>
+          </div>
+        </div>
+      </div>
+      <h3>Public repositories <span class="badge  badge-info" style="vertical-align: 4px;">{{repositories.length}}</span></h3>
+      <p><input type="text" ng-model="filtering" class="search-query" placeholder="Filter"></p>
+      <div ng-repeat="repository in repositories | filter:filtering | orderBy:orderProp">
+        <h3>
+          <a href="{{repository.html_url}}" target="_blank">{{repository.name}}</a>
+          <span class="btn btn-mini"><i class="icon-star"></i> {{repository.watchers_count}}</span>
+        </h3>
+        <p>{{repository.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>
