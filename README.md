@@ -1,4 +1,6 @@
-# Demo app with Rails 4 / AngularJS and Github API
+## AngularJS + Github API
+
+Sample application for AngularJS testing with Github API.
 
 [AngularJS](http://angularjs.org/)
 
@@ -6,11 +8,18 @@
 
 ## HowTo
 
-        git clone https://github.com/madwork/angular-github angular-github
-        cd angular-github
-        
-        bundle install
-        bundle exec rails s
+	git clone https://github.com/madwork/angular-github angular-github
+	cd angular-github
+	
+	# ruby 2.0.0 needed
+	# https://gist.github.com/madwork/5154412
+	
+	gem install bundler
+	
+	bundle install
+	bundle exec rails s
+
+Open web browser @ http://localhost:3000/
 
 ## Contributing
 
